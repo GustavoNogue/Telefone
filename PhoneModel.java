@@ -12,9 +12,9 @@ public class PhoneModel {
     private List<Observer> observers = new ArrayList<>();
 
     // Método chamado quando o usuário adiciona um dígito
-    public void adicionarDigito(char digito) {
-        numero.append(digito); // adiciona o dígito ao número
-        notifyObservers();     // notifica todos os observadores
+    public void addDigit(char digit) {
+        numero.append(digit); // adiciona o dígito ao número
+        notifyObservers();    // notifica todos os observadores
     }
 
     // Retorna o número completo discado até agora
