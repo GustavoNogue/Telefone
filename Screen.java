@@ -1,12 +1,23 @@
-/**
- * Prints things out to the screen, when needed
- * Printing to the screen:
- *  System.out.println("hello");
- */
+// A classe Screen é responsável por criar e registrar observadores
+// no PhoneModel. Cada observador define uma reação diferente
+// quando um novo dígito é digitado.
 public class Screen {
-    private final PhoneModel model;
 
     public Screen(PhoneModel model) {
-        this.model = model;
+        // Observador 1: imprime apenas o último dígito discado
+        model.addObserver(new Observer() {
+            @Override
+            public void update(PhoneModel m) {
+                System.out.println("Último dígito: " + m.getUltimoDigito());
+            }
+        });
+
+        // Observador 2: imprime o número completo discado até agora
+        model.addObserver(new Observer() {
+            @Override
+            public void update(PhoneModel m) {
+                System.out.println("Agora discando " + m.getNumero() + "...");
+            }
+        });
     }
 }
